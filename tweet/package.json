@@ -1,0 +1,17 @@
+{
+  "name": "tweet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tweetme": "node ./tweetApost",
+    "thankYou": "node ./tweetAThanksTo",
+    "getMyMentions": "node ./searchTaggedTweets"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^7.2.3",
+    "twitter-node-client": "0.0.6"
+  }
+}
