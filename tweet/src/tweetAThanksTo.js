@@ -4,20 +4,18 @@ const fs = require('fs');
 var error = function (err, response, body) {
     console.log('ERROR [%s]', err.toString);
 };
-var success = function (data) {
-   
 
+var success = function (data) {
     fs.appendFile('tweets.json', `,${data}`, function (err) {
         if (err) throw err;
         console.log('Tweet Saved!');
       });
 };
 
-
 var twitter = new Twitter(config);
 
 
-let thanksTo = '@Gopikishan101'//'@drgynaec'//'@scdas64'//'@Manaswinish';
+let thanksTo = ''
 
 
 

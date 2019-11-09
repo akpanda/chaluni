@@ -22,7 +22,7 @@ var success = function (data) {
 var twitter = new Twitter(config);
 
 
-let volunteersToVote=["akpanda"] 
+let volunteersToVote=[""] 
 
 
 function pollValidForDays(theDate, days) {
@@ -65,13 +65,8 @@ let parametersTweetWithPoll ={
 
 let enString = 'On the Occasion of Mahalaya my best wishes to #Odias all over the place.';
 let orString = 'ପବିତ୍ର #ମହାଳୟା ଅବସରରେ ସମସ୍ତ ଓଡ଼ିଶାବାସୀଙ୍କୁ ମୋ ହାର୍ଦ୍ଦିକ ଶୁଭେଚ୍ଛା|';
-
 let itag = '\n#ଶୁଆନୁବାଦ'
-
 let tweetTemplate =`En: ${enString}\nOr:${orString}${itag}`;
-
-
-
 let parameters = {"status":tweetTemplate};
 
 

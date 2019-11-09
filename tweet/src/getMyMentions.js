@@ -38,24 +38,5 @@ var getMyMentions=function(){
 }
 module.exports=getMyMentions;
 
-//"id":1183813946928553987,"id_str":"1183813946928553987"
-
-
-// let tweetId ='1183191817925226498';
-
-
-// let retweetURL=`/statuses/retweet/${tweetId}.json`
-
-// //twitter.postCustomApiCall('/statuses/retweet/:id',{'id': tweetId}, error, success);
-
-// twitter.postCustomApiCall(retweetURL,{}, error, success);
-
-
-
-
-
-
-//twitter.getSearch(parameters, errorCallback, successCallback);
-
 
 

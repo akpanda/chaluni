@@ -25,15 +25,13 @@ var twitter = new Twitter(config);
 let tweetId ="1183777422153400320";
 
 let likeURL=`/favorites/create.json`
-// let unLikeURL=`/favorites/desrtoy.json`
+let unLikeURL=`/favorites/desrtoy.json`
 
 twitter.postCustomApiCall(likeURL,{id:tweetId}, error, success);
 
-// twitter.postCustomApiCall(unLikeURL,{id:tweetId}, error, success);
+const like=(tweetId)=>{
+    let retweetURL=`/statuses/retweet/${tweetId}.json`
 
-// const like=(tweetId)=>{
-//     let retweetURL=`/statuses/retweet/${tweetId}.json`
-
-//     twitter.postCustomApiCall(retweetURL,{}, error, success);
-// }
+    twitter.postCustomApiCall(retweetURL,{}, error, success);
+}
 

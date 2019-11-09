@@ -21,18 +21,11 @@ var success = function (data) {
 
 var twitter = new Twitter(config);
 
-//TEST 
-// let tweetId ="1183777422153400320";
-// let retweetURL=`/statuses/retweet/${tweetId}.json`
-// twitter.postCustomApiCall(retweetURL,{}, error, success);
-
 
 
 var reTweet = function (tweetId) {
-    // let retweetURL=`/statuses/retweet/${tweetId}.json`
-    // twitter.postCustomApiCall(retweetURL,{}, error, success);
-
-    console.log('reTweet gets called ')
+     let retweetURL=`/statuses/retweet/${tweetId}.json`
+     twitter.postCustomApiCall(retweetURL,{}, error, success);
 }
 
 module.exports=reTweet;
