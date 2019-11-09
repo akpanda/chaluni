@@ -7,13 +7,7 @@ var success = function (data) {
 };
 
 
-var twitter = new Twitter({
-    "consumerKey": "aZWupw2JHS2yuJ4MyNmOPJUSW",
-    "consumerSecret": "7n5fdL0EdaVZXukXlsbQF2ssFXnN8kfQRfW8yVkDIW21TVN3ml",
-    "accessToken": "981644992992063488-Lcm34AzNt68JN78M8k3EepuzJ6U83dx",
-    "accessTokenSecret": "f9ziiVOLZOiXuX40DSFc7QOFZ66vz27DClFVttcfmcfx7",
-    "callBackUrl": ""
-});
+var twitter = new Twitter(config);
 //twitter.getUserTimeline({ screen_name: 'mte2o', count: '10'}, error, success);
 
 let volunteersToVote=["akpanda"] 
