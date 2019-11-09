@@ -1,4 +1,4 @@
-#  ଟୁଇଟ ବଟ TweetBot
+#  ଶୁଆ ଟୁଇଟ ବଟ TweetBot
 
 ଏହି ଭାଗ ଟି ଶୁଆ ଟୁଇଟ ବଟର କାମକୁ ସ୍ଵୟଂଚାଳିତ କରେ  
 This part automates ଶୁଆ(sua) operations 
