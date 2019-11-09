@@ -1,5 +1,8 @@
-# tweet
-This part automates ଶୁଆ(sua) operations like 
+#  ଟୁଇଟ ବଟ TweetBot
+
+ଏହି ଭାଗ ଟି ଶୁଆ ଟୁଇଟ ବଟର କାମକୁ ସ୍ଵୟଂଚାଳିତ କରେ  
+This part automates ଶୁଆ(sua) operations 
+
 - Creating review of an unreviewed phrase pair via twitter.
 - Automatic retweets of bilingual tweets. 
 - Anything that is dealt with processing operations of Sua TweetBot 
