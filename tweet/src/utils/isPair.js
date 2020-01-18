@@ -12,8 +12,12 @@
  * Pair With English First : ((["]*[\w\s])*([\.\|\n\?]))((["]*[\u0b00-\u0b7F\s,])*([\|\n\?]))
  * Pair With Odia  First   : (((["]*[\u0b00-\u0b7F\s,])*([\|\n\?])(["]*[\w\s])*([\.\|\n\?])))
  * 
+ * 
+ * English Sentence :String regex = "^\\s+[A-Za-z,;'\"\\s]+[.?!]$" https://stackoverflow.com/questions/20320719/constructing-regex-pattern-to-match-sentence
+ * Odia Sentence :String regex = "^\\s+[\u0b00-\u0b7F,;'\"\\s]+[.?!]$" 
  */
 
+const ସରଞ୍ଜାମ = require('./utils');
 
  /** generate all odia consonants */
 function generateOdiaConsonants() {
@@ -92,25 +96,26 @@ const hasEnglish=(enString)=>{
     return hasEnglish ;
 }
 
-const ଏମାନେ_ଗୋଟେ_ଯୋଡି_କି =(passedString) =>{
+const ଏମାନେ_ଗୋଟେ_ଯୋଡି_କି =(tweetText) =>{
+    
+    const passedString = 
+        ସରଞ୍ଜାମ.excludeEverythingAfterHash(tweetText);
 
     let isBilingual=false 
-  
     let stringLength= passedString.split().length;
+    //var before = passedString.substr( (stringLength/2 -5), 5);
+    let before = passedString.substr( 0,stringLength/2);
 
-    var before = passedString.substr( (stringLength/2 -5), 5);
-
-    var after = passedString.substr(stringLength/2, 5);
-
+   // var after = passedString.substr(stringLength/2, 5);
+   let after = passedString.substr(stringLength/2, stringLength);
     if(hasOdia(before) && hasEnglish(after) ||
          hasOdia(after) && hasEnglish(before))
     {
-
         isBilingual =true ;
     }
-
     return isBilingual;
 }
+
 
 const isPair=(passedString) =>{
 
@@ -204,12 +209,14 @@ const Pair=(ଅକ୍ଷରସୁତା)=>{
 }
 
 //const  ପୁନଃପୌନିକ_ଅକ୍ଷରମାଳା_ଓଡ଼ିଆ  = /([\u0b00-\ub07F,-:;?"'!\s।]+)/g;
-const  ପୁନଃପୌନିକ_ଅକ୍ଷରମାଳା_ଓଡ଼ିଆ  = /([\u0b00-\ub07F,-:;?"'!\s।]+[\u0b00-\ub07F \n]$)/g;
+const  ପୁନଃପୌନିକ_ଅକ୍ଷରମାଳା_ଓଡ଼ିଆ  = /([\u0b00-\ub07F \d,-:;?"'!\s।]+[\u0b00-\ub07F । \n]$)/g;
 const  ପୁନଃପୌନିକ_ଅକ୍ଷରମାଳା_ଓଡ଼ିଆ_1 = /(([\s"]*[\u0b00-\u0b7F\s,-:])+([\;\|\n\?\!।]))/g;
 //const  ପୁନଃପୌନିକ_ଅକ୍ଷରମାଳା_ଇଂରାଜୀ  = /(["\w\s,?"'-;:!]*[\.\!\;])/g;
-const  ପୁନଃପୌନିକ_ଅକ୍ଷରମାଳା_ଇଂରାଜୀ  = /(["\w\s,?"'-;:!]*[\.\!\;\n])/g;
+const  ପୁନଃପୌନିକ_ଅକ୍ଷରମାଳା_ଇଂରାଜୀ  = /(["\w\s,\d?"'-;:!]*[\.\!\;\n])/g;
 const  ପୁନଃପୌନିକ_ଅକ୍ଷରମାଳା_ଇଂରାଜୀ_1  = /(([\w\s":'])+([\.\? \;\!]))/g;
 
+
+//ଏଠାରେ ପବନର ବେଗ ସାମାନ୍ୟଠାରୁ ଟିକେ ଅଧିକ ଅଛି।
 const ଯୋଡ଼ିର_ଓଡ଼ିଆ_ଭାଗ=(ଯୋଡ଼ିର_ଅକ୍ଷରସୁତା)=>{
     let ଯୋଡ଼ିର_ଓଡ଼ିଆ_ଭାଗ ="ଜଣାନାହିଁ";
     console.log("ଯୋଡ଼ିର_ଓଡ଼ିଆ_ଭାଗ" +": "+ଯୋଡ଼ିର_ଅକ୍ଷରସୁତା)
@@ -227,7 +234,7 @@ const ଯୋଡ଼ିର_ଓଡ଼ିଆ_ଭାଗ=(ଯୋଡ଼ିର_ଅକ୍
    console.log("ଯୋଡ଼ିର_ଓଡ଼ିଆ_ଭାଗ" +": "+ଯୋଡ଼ିର_ଓଡ଼ିଆ_ଭାଗ);
     return ଯୋଡ଼ିର_ଓଡ଼ିଆ_ଭାଗ;
  }
-
+//when will Ram return?
 const ଯୋଡ଼ିର_ଇଂରାଜୀ_ଭାଗ=(ଯୋଡ଼ିର_ଅକ୍ଷରସୁତା)=>{
     let ଯୋଡ଼ିର_ଇଂରାଜୀ_ଭାଗ ="Unknown";
 

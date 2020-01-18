@@ -3,6 +3,10 @@
  * @param {*} tweetText 
  */
 function excludeEverythingAfterHash(tweetText) {
+    console.log(tweetText);
+    console.log(tweetText.indexOf("#ଶୁଆନୁବାଦ") >0);
+    console.log(tweetText.substring(0,tweetText.indexOf("#ଶୁଆନୁବାଦ")));
+
     var pairPart = tweetText.indexOf("#ଶୁଆନୁବାଦ") >0 ? 
                       tweetText.substring(0,tweetText.indexOf("#ଶୁଆନୁବାଦ")):tweetText;
     return pairPart.trim();
@@ -24,12 +28,26 @@ function excludeSelfRTs(tweetText) {
  * @param {string} tweetText 
  */
 function excludeRTLists(tweetText) {
+    console.log(tweetText)
+   if(tweetText.lastIndexOf("@")>0){
      let pairPart = tweetText.substring(tweetText.lastIndexOf("@"),tweetText.length);
       pairPart = pairPart.substring(pairPart.indexOf(" "),pairPart.length);
      console.log("ERTL "+pairPart);
       return pairPart.trim();
-
+    }
+    else return tweetText
  }
+
+ /**
+ * remove  URLSs added by twitter referring tweets 
+ * @param {string} tweetText 
+ */
+function excludeLinkURLS(tweetText) {
+     let pairPart='';
+     pairPart = tweetText.indexOf("https://") >0 ?
+      tweetText.substring(0,tweetText.indexOf("https://")):tweetText;
+     return pairPart.trim();
+}
 
 /**
  * processses tweets having multiple pairs 
@@ -68,7 +86,8 @@ module.exports = {
     excludeEverythingAfterHash,
     excludeSelfRTs,
     extractMultiplePairsIfAny,
-    excludeRTLists
+    excludeRTLists,
+    excludeLinkURLS
   }
 
 //TESTS : TODO : move these into proper test cases 

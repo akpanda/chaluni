@@ -4,13 +4,15 @@ const fs = require('fs');
 
 // Get the modules to run 
 const  getMyHashTags =require('./src/getMyHashTags');
+const  getMyOwnTimeLine =require('./src/getMyTimeLine');
 
 // Define application level constants 
 const runInterVal=15000;
-const hashTagScanBatchSize=10;
+const batchSize=4;
+const hashTagScanBatchSize=4;
 
 /**
- Run continuously
+ Run continuouslyls
   Get Mentions / Hashes     
         Check each 
         Do they have Odia character 
@@ -25,7 +27,8 @@ const hashTagScanBatchSize=10;
 const runSuaTasks = ()=> {
     console.log('Sua tasks starts.... _' + Date.now());
 
-    getMyHashTags(hashTagScanBatchSize);
+    //getMyHashTags(hashTagScanBatchSize);
+    getMyOwnTimeLine(batchSize);
     
     console.log('Sua tasks ends ..... _ '+ Date.now());
 }

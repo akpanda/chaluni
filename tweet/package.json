@@ -6,12 +6,16 @@
   "scripts": {
     "tweetme": "node ./tweetApost",
     "thankYou": "node ./tweetAThanksTo",
-    "getMyMentions": "node ./searchTaggedTweets"
+    "getMyMentions": "node ./searchTaggedTweets",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "firebase": "^7.2.3",
     "twitter-node-client": "0.0.6"
+  },  
+  "devDependencies": {
+    "jest": "^24.9.0"
   }
 }

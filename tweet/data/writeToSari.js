@@ -9,7 +9,8 @@ const writePair=(Pair)=>{
   }
     Firebase.database().ref('pairs/' + uniqueId).set(Pair);
  }
-const ଯୋଡିଟେ_ପଠାଉଛୁ =writePair;
+
+
 const writeUnRecognized=(unrecognizedObject)=>{
   if (!Firebase.apps.length) {
     Firebase.initializeApp(firebaseConfig);
@@ -17,6 +18,19 @@ const writeUnRecognized=(unrecognizedObject)=>{
     Firebase.database().ref('unrecognized/' + uniqueId).set(unrecognizedObject);
  }
 
+/**
+ * ସବୁ #ଶୁଆନୁବାଦ ଟୁଇଟ  in the profile 
+ */
+const writeProfileTweets=(hashedObject)=>{
+  if (!Firebase.apps.length) {
+    Firebase.initializeApp(firebaseConfig);
+  }
+    Firebase.database().ref('profile/' + uniqueId).set(hashedObject);
+ }
+
+ const ଯୋଡିଟେ_ପଠାଉଛୁ =writePair;
+ const ପ୍ରୋଫାଇଲରେ_ଥିବା_ଟୁଇଟ_ଲେଖା =writeProfileTweets;
+ 
 const getPairs = () => {
 
     if (!Firebase.apps.length) {
@@ -52,5 +66,6 @@ const getPairs = () => {
  // getPairs();
 
 module.exports ={
+  ପ୍ରୋଫାଇଲରେ_ଥିବା_ଟୁଇଟ_ଲେଖା,
   ଯୋଡିଟେ_ପଠାଉଛୁ
 }
